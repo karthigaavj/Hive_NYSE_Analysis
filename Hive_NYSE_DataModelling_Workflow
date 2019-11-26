@@ -54,5 +54,16 @@ create table nyse_hdfs(
 
     hadoop fs -put '/home/cloudera/Desktop/NYSE_daily' './nyse_daily_hdfs/'
     
-6.  
+6.  Load data to hive nyse_hdfs table from hdfs--hadoop 
+    hive> load data inpath './nyse_daily_hdfs/NYSE_daily' overwrite into table nyse_hdfs       
+    > ;
+    Loading data to table default.nyse_hdfs
+    chgrp: changing ownership of '/user/hive/warehouse/nyse_hdfs/NYSE_daily': User does not belong to hive
+    Table default.nyse_hdfs stats: [num_partitions: 0, num_files: 1, num_rows: 0, total_size: 3194099, raw_data_size: 0]
+    OK
+    Time taken: 2.154 seconds
+
+    Observations: Found nyse_daily data in nyse_hdfs table but the hdfs nyse_daily data file is moved and invisible in the './nyse_daily_hdfs/NYSE_daily'
+    
+    
     
