@@ -15,15 +15,16 @@ create table nyse(
 
 2.	Describe   nyse or Describe formatted nyse;
 
-3.  <b>1st attempt failed:</b> 
-    <b>hive</b>> load data local inpath '/home/cloudera/Desktop/nyse_daily'
+3.  Hive – Loading Data – From local Directory. 
+    1st attempt failed: 
+    hive> load data local inpath '/home/cloudera/Desktop/nyse_daily'
         > overwrite into table nyse;
             FAILED: SemanticException Line 1:23 Invalid path ''/home/cloudera/Desktop/nyse_daily'': No files matching path file:/home/cloudera/Desktop/nyse_daily
-    <b>2nd attempt failed:</b> 
-    <b>hive</b>> load data local inpath './nyse_daily' overwrite into table nyse;
+    2nd attempt failed: 
+    hive> load data local inpath './nyse_daily' overwrite into table nyse;
                  FAILED: SemanticException Line 1:23 Invalid path ''./nyse_daily'': No files matching path file:/home/cloudera/nyse_daily
-    <b>3rd attempt success:</b>
-    <b>hive</b>> load data local inpath '/home/cloudera/Desktop/NYSE_daily' overwrite into table nyse;
+    3rd attempt success:
+    hive> load data local inpath '/home/cloudera/Desktop/NYSE_daily' overwrite into table nyse;
                  Copying data from file:/home/cloudera/Desktop/NYSE_daily
                  Copying file: file:/home/cloudera/Desktop/NYSE_daily
                  Loading data to table default.nyse
