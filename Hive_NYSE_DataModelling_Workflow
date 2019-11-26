@@ -50,4 +50,9 @@ create table nyse_hdfs(
     > row format delimited                                                                 
     > fields terminated by '\t';   
     
+5.  To copy data from local to HDFS use following command 
+
+    hadoop fs -put '/home/cloudera/Desktop/NYSE_daily' './nyse_daily_hdfs/'
+    
+6.  
     
