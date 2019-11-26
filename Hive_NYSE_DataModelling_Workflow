@@ -34,4 +34,20 @@ create table nyse(
                  Time taken: 2.501 seconds
     Observation of failiure: the operation twice failed because the file name in local path specied is case sensitive should check uppercase and lowercase
     
+4.  To experiment and observe load data from hdfs to Hive 
 
+create table nyse_hdfs(                                                              
+    > exchange1 string,                                                                    
+    > symbol2   string,                                                                    
+    > ymd       string,                                                                    
+    > price_open  float,                                                                   
+    > price_high  float,                                                                   
+    > price_low   float,                                                                   
+    > price_close float,                                                                   
+    > volume      INT,                                                                     
+    > price_adj_close float                                                                
+    > )                                                                                    
+    > row format delimited                                                                 
+    > fields terminated by '\t';   
+    
+    
