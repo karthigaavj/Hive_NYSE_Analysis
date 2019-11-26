@@ -15,3 +15,22 @@ create table nyse(
 
 2.	Describe   nyse or Describe formatted nyse;
 
+3.  <b>1st attempt failed:</b> 
+    <b>hive</b>> load data local inpath '/home/cloudera/Desktop/nyse_daily'
+        > overwrite into table nyse;
+            FAILED: SemanticException Line 1:23 Invalid path ''/home/cloudera/Desktop/nyse_daily'': No files matching path file:/home/cloudera/Desktop/nyse_daily
+    <b>2nd attempt failed:</b> 
+    <b>hive</b>> load data local inpath './nyse_daily' overwrite into table nyse;
+                 FAILED: SemanticException Line 1:23 Invalid path ''./nyse_daily'': No files matching path file:/home/cloudera/nyse_daily
+    <b>3rd attempt success:</b>
+    <b>hive</b>> load data local inpath '/home/cloudera/Desktop/NYSE_daily' overwrite into table nyse;
+                 Copying data from file:/home/cloudera/Desktop/NYSE_daily
+                 Copying file: file:/home/cloudera/Desktop/NYSE_daily
+                 Loading data to table default.nyse
+                 chgrp: changing ownership of '/user/hive/warehouse/nyse': User does not belong to hive
+                 Table default.nyse stats: [num_partitions: 0, num_files: 1, num_rows: 0, total_size: 3194099, raw_data_size: 0]
+                 OK
+                 Time taken: 2.501 seconds
+    Observation of failiure: the operation twice failed because the file name in local path specied is case sensitive should check uppercase and lowercase
+    
+
