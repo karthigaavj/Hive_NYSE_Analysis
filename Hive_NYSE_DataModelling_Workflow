@@ -65,5 +65,8 @@ create table nyse_hdfs(
 
     Observations: Found nyse_daily data in nyse_hdfs table but the hdfs nyse_daily data file is moved and invisible in the './nyse_daily_hdfs/NYSE_daily'
     
-    
+7.  To Check data in hive directory that resides in hdfs:
+       hadoop fs -ls /user/hive/warehouse/nyse_hdfs
+       hadoop fs -cat /user/hive/warehouse/nyse_hdfs/NYSE_daily
+
     
